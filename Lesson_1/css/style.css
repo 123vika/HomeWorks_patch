@@ -1,0 +1,13 @@
+.show{
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.checkout-button {
+background: #999;
+color: #555;
+cursor: not-allowed;
+}
