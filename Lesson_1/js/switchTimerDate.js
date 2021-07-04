@@ -3,9 +3,6 @@ const switchToDateCalc = document.getElementById('switchToDateCalc');
 const timerBlock = document.getElementById('timerBlock');
 const dateCalcForm = document.getElementById('datecalc');
 
-// const switchToDateCalc = document.getElementById('switchToDateCalc');
-// const switchToTimer = document.getElementById('switchToTimer');
-
 dateCalcForm.classList.add('hide');
 
 const showDateCalc = () => {
@@ -13,7 +10,6 @@ const showDateCalc = () => {
     dateCalcForm.classList.remove('hide');
     dateCalcForm.classList.add('show');
 };
-
 
 const hideDateCalc = () => {
 
@@ -23,8 +19,6 @@ const hideDateCalc = () => {
 
 switchToDateCalc.addEventListener('click', showDateCalc);
 switchToTimer.addEventListener('click', hideDateCalc);
-
-
 
 
 timerBlock.classList.add('hide');

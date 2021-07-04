@@ -1,9 +1,9 @@
-import './switchTimer.js';
+import './switchTimerDate.js';
 import './timer.js';
 
 const counterTimer = document.querySelector('.counterTimer');
 const startBtn = document.querySelector('.start');
-const stopBtn = document.querySelector('.stop');
+// const stopBtn = document.querySelector('.stop');
 const timerMinutes = document.getElementById('timerMinutes');
 const timerSeconds = document.getElementById('timerSeconds') ;
 let minValue = 0;
