@@ -1,21 +1,17 @@
-const switchToTimer = document.getElementById('switchToTimer');
-const switchToDateCalc = document.getElementById('switchToDateCalc'); 
-const timerBlock = document.getElementById('timerBlock');
-const dateCalcForm = document.getElementById('datecalc');
-
-// const switchToDateCalc = document.getElementById('switchToDateCalc');
-// const switchToTimer = document.getElementById('switchToTimer');
+export const switchToTimer = document.getElementById('switchToTimer');
+export const switchToDateCalc = document.getElementById('switchToDateCalc'); 
+export const timerBlock = document.getElementById('timerBlock');
+export const dateCalcForm = document.getElementById('datecalc');
 
 dateCalcForm.classList.add('hide');
 
-const showDateCalc = () => {
+export const showDateCalc = () => {
 
     dateCalcForm.classList.remove('hide');
     dateCalcForm.classList.add('show');
 };
 
-
-const hideDateCalc = () => {
+export const hideDateCalc = () => {
 
     dateCalcForm.classList.remove('show');
     dateCalcForm.classList.add('hide');
@@ -25,11 +21,9 @@ switchToDateCalc.addEventListener('click', showDateCalc);
 switchToTimer.addEventListener('click', hideDateCalc);
 
 
-
-
 timerBlock.classList.add('hide');
 
-const showTimer = () => {
+export const showTimer = () => {
 
     timerBlock.classList.remove('hide');
     timerBlock.classList.add('show');
@@ -40,7 +34,7 @@ const showTimer = () => {
 
 switchToTimer.addEventListener('click', showTimer);
 
-const hideTimer = () => {
+export const hideTimer = () => {
 
     timerBlock.classList.remove('show');
     timerBlock.classList.add('hide');
