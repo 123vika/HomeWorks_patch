@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-// const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
-
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+// git const {Howl, Howler} = require('howler');
 
 module.exports = {
     entry: resolve(__dirname, 'js', 'main.js'),
@@ -19,9 +19,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new HTMLWebpackPlugin({template: resolve(__dirname, 'index.html')})
+        new HTMLWebpackPlugin({template: resolve(__dirname, 'index.html')})//,
         // new BundleAnalyzerPlugin()
-    ],
-    watch: true
-
+    ]
+    
 };

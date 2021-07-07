@@ -1,49 +1,87 @@
-// import './switchTimerDate.js';
-// import './timer.js';
+import * as diffTime from "./timer";
+// import {Howl, Howler} from 'howler';
 
-export const counterTimer = document.querySelector('.counterTimer');
+export let counterTimer = document.querySelector('.counterTimer');
 export const startBtn = document.querySelector('.start');
+export const pauseBtn = document.querySelector('.pause');
 export const stopBtn = document.querySelector('.stop');
 
-let minValue = 0;
-let secValue = 0;
+let minutesValue = 0;
+let secondsValue = 0;
 let intervalId = 0;
+// let innerTime = counterTimer.innerHTML = `
+//             <span>
+//                 ${minutesValue} minute 
+//                 ${secondsValue} secunds
+//             </span>
+//         `;
 
 export const showTimer = () => {
-    if (secValue <= 0 && minValue <= 0 ) {
-        stopTimer();
+    if (secondsValue <= 0 && minutesValue <= 0 ) {
+        pauseTimer();
+        counterTimer.innerHTML = `<strong>End Time</strong>`;
+        startBtn.classList.remove('checkout-button');
+        stopBtn.classList.add('checkout-button');
         return;  
-    }else if(secValue <= 0 && minValue > 0){
-        minValue = minValue - 1;
-        secValue = 60;
- 
+    }else if(secondsValue <= 0 && minutesValue > 0){
+        minutesValue = minutesValue - 1;
+        secondsValue = 60;
     }
-    secValue --;
-    console.log(minValue, secValue);
-    counterTimer.innerHTML = `${minValue} : ${secValue}`;
+    secondsValue --;
+    console.log(minutesValue, secondsValue);
+    counterTimer.innerHTML = `
+            <span>
+                ${minutesValue} minute 
+                ${secondsValue} seconds
+            </span>
+        `;
 };
 
 export const startSetInterval = () => {
     const timerMinutes = document.getElementById('timerMinutes');
     const timerSeconds = document.getElementById('timerSeconds') ;
     if(intervalId){
-        stopTimer();
+        pauseTimer();
         console.log('clean interval');
     }
-    if(!minValue && !secValue){
-        minValue = timerMinutes.value;
-        secValue = timerSeconds.value; 
+    if(!minutesValue && !secondsValue){
+        counterTimer.innerTime = counterTimer.innerHTML = `
+            <span>
+                ${minutesValue} minute 
+                ${secondsValue} seconds
+            </span>
+        `;
+        minutesValue = timerMinutes.value;
+        secondsValue = timerSeconds.value; 
+
     }
    
     intervalId = setInterval(showTimer, 1000);
 };
-
 startBtn.addEventListener('click', startSetInterval);
 
-export const stopTimer = () => {
+export const pauseTimer = () => {
     clearInterval(intervalId);
     intervalId = 0;
 };
+pauseBtn.addEventListener('click', pauseTimer);
 
-stopBtn.addEventListener('click', stopTimer);
 
+export const stopTime = ()=>{
+    clearInterval(intervalId);
+    // const sound = new Howl({
+    //     src: ['sound.webm', 'sound.mp3']
+    // });
+    // Howler.volume(1.0);
+    // sound.play();
+
+    minutesValue = secondsValue = 0;
+    counterTimer.innerHTML = `<strong>End Time</strong>`;
+    console.log('inside stopTimer');
+    // const sound = new Howl({
+    //     src: ['sound.mp3']
+    //   });
+      
+    // sound.play();
+};
+stopBtn.addEventListener('click', stopTime);
