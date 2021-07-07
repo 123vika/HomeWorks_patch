@@ -1,5 +1,4 @@
 import * as timer from "./diffTime.js";
-import * as music from "./music.js";
 
 export const startBtn = document.querySelector('.start');
 export const pauseBtn = document.querySelector('.pause');
