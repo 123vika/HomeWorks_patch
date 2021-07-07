@@ -20,6 +20,8 @@ export const showTimer = () => {
     if (secondsValue <= 0 && minutesValue <= 0 ) {
         pauseTimer();
         counterTimer.innerHTML = `<strong>End Time</strong>`;
+        startBtn.classList.remove('checkout-button');
+        stopBtn.classList.add('checkout-button');
         return;  
     }else if(secondsValue <= 0 && minutesValue > 0){
         minutesValue = minutesValue - 1;
