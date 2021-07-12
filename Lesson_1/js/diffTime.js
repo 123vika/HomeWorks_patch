@@ -31,8 +31,8 @@ export const showTimer = () => {
     console.log(minutesValue, secondsValue);
     counterTimer.innerHTML = `
             <span>
-                ${minutesValue} minute 
-                ${secondsValue} seconds
+                minutes ${minutesValue} :   
+                seconds ${secondsValue} 
             </span>
         `;
 };
@@ -47,8 +47,8 @@ export const startSetInterval = () => {
     if(!minutesValue && !secondsValue){
         counterTimer.innerTime = counterTimer.innerHTML = `
             <span>
-                ${minutesValue} minute 
-                ${secondsValue} seconds
+                minutes ${minutesValue} :
+                seconds ${secondsValue} 
             </span>
         `;
         minutesValue = timerMinutes.value;
